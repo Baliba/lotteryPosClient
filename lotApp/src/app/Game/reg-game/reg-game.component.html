@@ -1,0 +1,55 @@
+<div class="page-auth">
+            <div class="col-md-6 col-md-offset-3 login">
+                <img src="assets/img/logo.png" class="logo-game" />
+                <div class="col-md-12 row">
+                    <h3 class="text-center">Byenvini sou LottoStar</h3>  
+                </div>
+               <div class="col-md-12 row">
+                  <app-alert [alert]="alert" pos="1"></app-alert>
+                </div>
+                   <div class="form-group">
+                <label>Siyati</label>
+                <input type="text" [(ngModel)]="creds.lastName"  class="form-control" />
+            </div>
+               <div class="form-group">
+                <label>non</label>
+                <input type="text" [(ngModel)]="creds.firstName"  class="form-control" />
+            </div>
+             <div class="form-group">
+                <label>Telefòn</label>
+                <input type="phone" [(ngModel)]="creds.username"  class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Imel</label>
+                <input type="phone" [(ngModel)]="creds.email"  class="form-control" />
+            </div>
+             <div class="form-group">
+                <label>Kod sekrè</label>
+                <input [(ngModel)]="creds.pass_1"  type="password" class="form-control" />
+             </div>
+                <div class="form-group">
+                <label>Re-antre Kod sekrè</label>
+                <input [(ngModel)]="creds.pass_2"  type="password" class="form-control" />
+             </div>
+              <div class="form-group">
+                <button class="btn btn-primary pull-right" (click)="checkReg()" [disabled]="loading[0]">Kreye kont</button>
+              </div>
+              <div class="col-md-12 text-center" style="margin-top:2%;">
+                                   <div class="or log">
+                                    <p>OR</p>
+                                </div>
+                                <div class="or-content">
+                                    <p class="or-signup">
+                                    Ou gen kont deja ? <a routerLink="/game/login">
+                                       al konekte
+                                        </a>
+                                    </p>
+                                      <p class="or-signup">
+                                    Oubliye kod sekre ou? <a routerLink="/game/login">
+                                        Rekiperel
+                                        </a>
+                                    </p>
+                                </div>
+                                </div>
+            </div>
+</div>

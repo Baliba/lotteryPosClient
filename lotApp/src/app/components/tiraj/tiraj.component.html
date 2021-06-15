@@ -1,0 +1,18 @@
+
+        <div class="col-sm-6 col-md-6 dd_column">
+            <div class="w-box" id="w_sort05">    
+                <div class="w-box-header">
+                   {{tiraj?.code_game}} |  {{tiraj?.date_tiraj}} 
+                </div>
+                <div class="w-box-content cnt_a">
+                    <div class="sepH_b">
+                      <h4 clss="" >Win3 : {{getWin3(tiraj)}}</h4>
+                    </div>
+                    <div class="formSep">
+                      <h4 class="">Numbers 4 :{{getNum4(tiraj)}}</h4>
+                    </div>
+                    <a class="btn btn-primary" routerLink="/admin/tickets/{{tiraj?.id}}" > Wè Tikè yo</a>
+                </div>
+            </div>
+        </div>
+

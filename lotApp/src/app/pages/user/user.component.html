@@ -1,0 +1,162 @@
+<div id="maincontainer" class="clearfix">
+    <app-header></app-header>
+    <div id="contentwrapper">
+        <div class="main_content">
+
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-12" *ngIf="!cedit">
+                        <app-alert [alert]="alert" pos="1"></app-alert>
+                        <h3 class="heading">Add User</h3>
+                        <div class="form_validation_reg">
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Lastname<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="user.lastName">
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Firstname<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="user.firstName">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Sex<span class="f_req">*</span></label>
+                                        <select class="form-control" name="user.sex">
+                                          <option value="M" >Man</option>
+                                          <option value="W" >Woman</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Pin<span class="f_req">*</span></label>
+                                        <input [(ngModel)]="user.pin" class="form-control" type="text">
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        <label>Username<span class="f_req">*</span></label>
+                                        <input [(ngModel)]="user.username" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Phone A<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="user.phone">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Phone B<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="user.phone_b">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Email<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="user.email">
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Adress<span class="f_req">*</span></label>
+                                        <input [(ngModel)]="user.adress" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Technician<span class="f_req">*</span></label>
+                                        <select class="form-control" name="user.tech">
+                                          <option value="item.id" *ngFor="let item of config?.tech">{{item.lastName}} {{item.firstName}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Supervisor<span class="f_req">*</span></label>
+                                        <select class="form-control" name="user.supervisor">
+                                          <option value="item.id" *ngFor="let item of config?.supervisor">{{item.lastName}} {{item.firstName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Role<span class="f_req">*</span></label>
+                                        <select class="form-control" name="user.role">
+                                          <option value="item.id" *ngFor="let item of config?.roles">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <label>Game Parameter<span class="f_req">*</span></label>
+                                        <select class="form-control" name="user.role">
+                                          <option value="item.id" *ngFor="let item of config?.pgs">{{item.name}}</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <label>Bank<span class="f_req">*</span></label>
+                                        <select class="form-control" name="user.pvbank">
+                                          <option value="item.id" *ngFor="let item of config?.banks">{{item.nom}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" [disabled]="lloading" class="btn btn-primary bm-2" (click)="save(user)">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <h3 class="heading">All Banks</h3>
+                            <table class="table table-bordered table-striped" id="smpl_tbl">
+                                <thead>
+                                    <tr>
+                                        <th>username</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Adress</th>
+                                        <th>Phones</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let g of users; let i = index">
+                                        <td>{{g.username}}</td>
+                                        <td>{{g.lastName}} {{g.firstName}}</td>
+                                        <td>{{g.email}}</td>
+                                        <td>{{g.adress}}</td>
+                                        <td>{{g.phone}} <br/>{{g.phone_b}}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-xs bm-2" (click)="edit(g, i)">
+                              <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+
+                                            <button class="btn btn-danger btn-xs bm-2" [disabled]="loading[i]" (click)="del(g.id, i)">
+                              <i class="glyphicon glyphicon-remove"></i>
+                            </button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-sidebar></app-sidebar>

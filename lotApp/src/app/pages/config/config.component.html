@@ -1,0 +1,70 @@
+<div id="maincontainer" class="clearfix">
+    <app-header></app-header>
+    <div id="contentwrapper">
+        <div class="main_content">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="col-sm-12 col-md-12">
+                        <app-alert [alert]="alert" pos="1"></app-alert>
+                        <h3 class="heading">Configuration</h3>
+                        <div class="form_validation_reg">
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4">
+                                        <label>Name<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.nom">
+                                    </div>
+                                    <div class="col-sm-8 col-md-8">
+                                        <label>Adress<span class="f_req">*</span></label>
+                                        <input [(ngModel)]="bank.adress" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Phone A<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.phone">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Phone B<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.phone_b">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Email<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.email">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Slogan<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.slogan">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formSep">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Date Time Format <span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.dateTimeFormat">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>Fuseau Horaire<span class="f_req">*</span></label>
+                                        <input class="form-control" type="text" [(ngModel)]="bank.fuseau_horaire">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary bm-2" (click)="save()">Configurer</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-sidebar></app-sidebar>

@@ -1,0 +1,125 @@
+<app-alert [alert]="alert" pos="100"></app-alert>
+<div *ngIf="tire==1">
+ <h3 class="text-center"> Re antre boul la anko </h3>
+<div class="formSep" >
+       <div class="row">
+           <div class="col-sm-12 col-md-5">
+             <div class="input-group">
+                <label>Dat ak lè : {{dt}} {{ht}}</label>
+             </div>
+           </div>
+            <div class="col-sm-12 col-md-4">
+            <div class="input-group">
+                <label>Tiraj: {{ cgame.code }}</label>
+            </div>
+           </div>
+           <div class="col-sm-2 col-md-2">
+            <div class="input-group" style="margin-top:20%;">
+                 <button class="btn btn-danger" (click)="tire = 0 " > Retounen </button>
+            </div>
+          </div>
+           <div class="col-sm-2 col-md-2">
+            <div class="input-group" style="margin-top:20%;">
+                 <button class="btn btn-danger" (click)="tire = !tire; " > Retounen </button>
+            </div>
+        </div>
+        </div>
+</div>
+ <div class="formSep" >
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="input-group">
+                <label>Win Numbers</label>
+                <input class="form-control" id="dp_modal" type="text" maxlength="3" [(ngModel)]="lot_3">
+            </div>
+        </div>
+        <div class="col-sm-7 col-md-7">
+            <div class="input-group ">
+                 <label>Win 4</label>
+                <input class="form-control" id="dp_modal" maxlength="4" type="text" [(ngModel)]="lot_4">
+            </div>
+        </div>
+         <div class="col-sm-2 col-md-2">
+            <div class="input-group" style="margin-top:30%;">
+                 <button class="btn btn-primary" [disabled]="loading[0]" (click)="addTiraj()"> Valide </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div *ngIf="tire==0">
+    <h3 class="text-center"> Antre tiraj Jodia  </h3>
+    <div class="formSep">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <label>Chwazi pouki jwèt</label>
+            <select class="form-control" [(ngModel)]="cgame" (change)='changeGame()'>
+                 <option [ngValue]="item" *ngFor="let item of games">{{item.code}}</option> 
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="formSep" *ngIf="cgame?.hour_draw">
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <label>Date tiraj la</label>
+            <div class="input-group bootstrap-timepicker">
+                <input class="form-control" id="dp_modal" type="text" [(ngModel)]="dt">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <label>Lè tiraj la</label>
+            <div class="input-group bootstrap-timepicker">
+                <input id="tp_modal" type="text" [(ngModel)]="ht" class="form-control">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="formSep" *ngIf="cgame?.hour_draw">
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="input-group">
+                <label>Win Numbers</label>
+                <input class="form-control" id="dp_modal" type="text" maxlength="3" [(ngModel)]="lot_1">
+            </div>
+        </div>
+        <div class="col-sm-7 col-md-7">
+            <div class="input-group ">
+                 <label>Win 4</label>
+                <input class="form-control" id="dp_modal" maxlength="4" type="text" [(ngModel)]="lot_2">
+            </div>
+        </div>
+         <div class="col-sm-2 col-md-2">
+            <div class="input-group" style="margin-top:30%;">
+                 <button class="btn btn-primary" (click)="tire = 1 " > Tire </button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+<div *ngIf="tire==3">
+    <div class="formSep">
+    <div class="row">
+         <h3 class="text-center"> Men boul jodia pou  </h3>
+        <div class="col-sm-6 col-md-6">
+            {{ ftiraj?.lot_0+""+ftiraj?.lot_1+""+ftiraj?.lot_2 }}
+        </div>
+         <div class="col-sm-3 col-md-3">
+             {{ ftiraj?.lot_3+""+ftiraj?.lot_4}}
+        </div>
+         <div class="col-sm-3 col-md-3">
+             {{ ftiraj?.lot_6+""+ftiraj?.lot_6 }}
+        </div>
+         <div class="col-sm-2 col-md-2">
+            <div class="input-group" style="margin-top:20%;">
+                 <button class="btn btn-danger" (click)="reset()" > Retounen </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

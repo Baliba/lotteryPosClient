@@ -1,0 +1,37 @@
+<div class="login_page">
+    <div class="body">
+        <div class="login_box">
+            <div id="login_form" *ngIf="show">
+                <div class="top_b">{{lang?.LOGIN_MSG}}</div>
+                <app-alert [alert]="alert" pos="1"></app-alert>
+                <div class="cnt_b">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm"><i class="glyphicon glyphicon-user"></i></span>
+                            <input [(ngModel)]="username" class="form-control input-sm" type="text" id="username" placeholder="{{lang?.USER_INPUT_PH}}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input [(ngModel)]="password" class="form-control input-sm" type="password" placeholder="{{lang?.PASS_INPUT_PH}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="btm_b clearfix">
+                    <button class="btn btn-default btn-sm pull-right" (click)="login()">{{lang?.LOGIN_BTN}}</button>
+                </div>
+                 <p class="text-center">
+                   <a routerLink="/game/login" > al Jwe </a>
+                </p>
+            </div>
+            <div id="login_form" *ngIf="!show">
+                <div class="top_b">{{msg}} </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,47 @@
+<div class="col-sm-12 col-md-12">
+    <app-alert [alert]="alert" pos="1"></app-alert>
+    <h3 class="heading">Edit game
+        <i (click)="close()" class="glyphicon glyphicon-remove  close " style="margin-bottom: 1%;"></i>
+    </h3>
+    <div class="form_validation_reg">
+        <div class="formSep">
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <label>Code<span class="f_req">*</span></label>
+                    <input disabled="true" class="form-control" type="text" [(ngModel)]="game.no">
+                </div>
+                <div class="col-sm-8 col-md-8">
+                    <label>Name<span class="f_req">*</span></label>
+                    <input [(ngModel)]="game.code" class="form-control" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="formSep">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <label>Hour draw<span class="f_req">*</span></label>
+                    <input class="form-control" type="text" [(ngModel)]="game.hour_draw">
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <label>Hour to block<span class="f_req">*</span></label>
+                    <input class="form-control" type="text" [(ngModel)]="game.hour_to_block">
+                </div>
+            </div>
+        </div>
+
+        <div class="formSep">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <label>Hour to start selling<span class="f_req">*</span></label>
+                    <input class="form-control" type="text" [(ngModel)]="game.hour_to_start_sell">
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <label>Delay to pay<span class="f_req">*</span></label>
+                    <input class="form-control" type="text" [(ngModel)]="game.delai">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary bm-2" (click)="editGame(index)">Edit</button>
+    </div>
+</div>

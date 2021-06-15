@@ -1,0 +1,49 @@
+<div class="col-sm-12 col-md-4">
+    <app-add-games *ngIf="!editview" (addGameMaster)="addGameMasterEvent($event)"></app-add-games>
+    <app-edit-games [game]="game" [index]="index" *ngIf="editview" (closeEditGameMaster)="closeEdit()" (editGameMaster)="editGameMasterEvent($event)"></app-edit-games>
+</div>
+<div class="col-sm-12 col-md-8">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <h3 class="heading">All Games</h3>
+            <table class="table table-bordered table-striped" id="smpl_tbl">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Hour to Draw</th>
+                        <th>Hour to block</th>
+                        <th>Hour to start selling</th>
+                        <th>Delay to pay</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let g of games; let i = index">
+                        <td>{{g.no}}</td>
+                        <td>{{g.code}}</td>
+                        <td>{{g.hour_draw}}</td>
+                        <td>{{g.hour_to_block}}</td>
+                        <td>{{g.hour_to_start_sell}}</td>
+                        <td>{{g.delai}}</td>
+                        <td>
+                            <button class="btn btn-primary btn-xs bm-2" (click)="edit(g, i)">
+                              <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+                            <button title="enable" class="btn btn-xs btn-success" [disabled]="loading[i]" *ngIf="!g.enabled" (click)="edGame(g.id,true,i)">
+                              <i class="glyphicon glyphicon-ok"></i>
+                              </button>
+                            <button class="btn btn-danger btn-xs bm-2" [disabled]="loading[i]" (click)="del(g.id, i)">
+                              <i class="glyphicon glyphicon-remove"></i>
+                            </button>
+                            <button title="disable" class="btn btn-xs btn-danger" [disabled]="loading[i]" *ngIf="g.enabled" (click)="edGame(g.id,false,i)">
+                              <i class="glyphicon glyphicon-off"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

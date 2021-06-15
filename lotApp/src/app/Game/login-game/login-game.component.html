@@ -1,0 +1,31 @@
+<div class="page-auth">
+            <div class="row col-md-6 col-md-offset-3 login">
+                <img src="assets/img/logo.png" class="logo-game" />
+                <div class="col-md-12">
+                    <h3 class="text-center">Byenvini sou LottoStar</h3>                </div>
+                <app-alert [alert]="alert" pos="1"></app-alert>
+                <div class="form-group">
+                <label>Telefòn</label>
+                <input type="phone" [(ngModel)]="creds.username"  class="form-control" />
+            </div>
+             <div class="form-group">
+                <label>Kod sekrè</label>
+                <input [(ngModel)]="creds.password"  type="password"class="form-control" />
+             </div>
+              <div class="row col-md-12">
+                <button class="btn btn-primary pull-right" (click)="checkLog()" [disabled]="loading[0]">Konekte</button>
+              </div>
+              <div class="col-md-12 text-center" style="margin-top:2%;">
+                                   <div class="or log">
+                                    <p>OR</p>
+                                </div>
+                                <div class="or-content">
+                                    <p class="or-signup">
+                                        Eske nouvo ? <a routerLink="/game/register">
+                                         Kreye kont la 
+                                        </a>
+                                    </p>
+                                </div>
+                                </div>
+            </div>
+</div>
